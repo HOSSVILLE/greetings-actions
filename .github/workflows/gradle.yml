@@ -38,3 +38,15 @@ jobs:
     - shell: bash
       run: |
         java -jar greetings-actions.jar ${{ github.event.inputs.myValues  }}      
+
+  count-args:
+    runs-on: ubuntu-latest
+    steps:
+    - id: report-count
+      uses: gwstudent/arg-count-action@Main
+      with:
+        arguments-to-count: ${{ github.event.inpouts.myValues }}
+    - run: echo
+    - shell: bash
+      run: |
+        echo argument count is ${{ steps.report-count.outputs.arg-count }}
