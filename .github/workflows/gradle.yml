@@ -24,6 +24,17 @@ jobs:
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: greetings-action
-        path: build/libs/**.jar
-        
+        name: greetings-jar
+        path: build/libs
+  test-run:
+    run-on: ubuntu-latest
+    needs: build
+
+    steps:
+    - name: Download candidate artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: greetings.jar
+    - shell: bash
+      run: |
+        java -jar greetings-actions.jar ${{ github.event.inputs.myValues  }}      
