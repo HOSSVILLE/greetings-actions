@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - id: report-count
-      uses: gwstudent/arg-count-action@Main
+      uses: HOSSVILLE/arg-count-action@Main
       with:
         arguments-to-count: ${{ github.event.inpouts.myValues }}
     - run: echo
