@@ -19,6 +19,8 @@ jobs:
         java-version: 11
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: list all environment variables
+      run: export
     - name: Build with Gradle
       run: ./gradlew build
     - name: Upload Build Artifact
